@@ -1,0 +1,26 @@
+<%= form_for @tweet do |f| %>   <!--勝手にform_for消してみた-->
+  <%=  @tweet.text %>
+  ←この内容で送信してよろしいカメ？？？
+
+   <%= hidden_field_tag :text, @tweet.text %>
+   <!--17:40 追記！他に①@以降ナシ②hidden_field  value => textなどしたがダメだった -->
+  <div class="actions">
+    <%= f.submit '投稿画面に戻る', name: 'back' %>
+  </div>
+  <div class="actions">
+    <%= f.submit '投稿する' %>   <!--submit(form_for????)から勝手にcreateアクションが発動-->
+  </div>
+<% end %>
+
+
+
+<!--元はこう
+<%= form_for @tweet do |f| %>
+  <%=  @tweet.text %>
+  <div class="actions">
+    <%= f.submit '投稿画面に戻る', name: 'back' %>
+  </div>
+  <div class="actions">
+    <%= f.submit '投稿する' %>
+  </div>
+<% end %>
